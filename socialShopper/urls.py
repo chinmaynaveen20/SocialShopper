@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 import contactus.views as cviews
 import accounts.views as aviews
+import shoppings.views as sviews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', cviews.contact, name = "contact"),
     path('', aviews.home, name = "home"),
+    path("login/", aviews.login, name = "login"),
+    path('home/', sviews.user_home, name = "user_home"),
+    path("logout/", aviews.logout, name = "logout")
 
 
 ]
