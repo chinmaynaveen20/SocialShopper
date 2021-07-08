@@ -40,6 +40,61 @@
 
             </div>
         </div>
+    <div class = "container mt-3">
+        <div class = "row" >
+            <div class = "col-2">
+                <div class="list-group">
+                  <a href="{% url 'user_home' 'pr' %}" class="list-group-item list-group-item-action active">Proposed</a>
+                  <a href="{% url 'user_home' 'ac' %}" class="list-group-item list-group-item-action">Active</a>
+                  <a href="{% url 'user_home' 'co' %}" class="list-group-item list-group-item-action">Completed</a>
+                </div>
+            </div>
+             <div class = "col-8">
+                 <ul class = "list-group list-group-flush">
+                 {%  for shop in shoppings %}
+                     <li class = "list-group-item">
+                        <div class = "card">
+                            <div class = "card-header text-center">
+                                <h4> {{shop.venues}}
+                                </h4>
+                            </div>
+                            <div class = "card-body">
+                                <div class = "row">
+                                    <div class = "col-3">
+                                        <h5 class = "card-title">
+                                            <i class = "far fa-calendar"></i>
+                                            {{shop.datetime}}
+                                        </h5>
+                                    </div>
+                                    <div class = "col-7">
+                                        <div class = "card" style = "width:18rem;">
+                                            <div class = "card-body">
+                                                <h5 class = "card-title">
+                                                    About {{shop.shopper.name}}:
+                                                </h5>
+                                                <div class = "row">
+                                                    <div class = "col"> Shops Done: {{shop.shopper.shopsDone}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "col-2">
+                                        <form method = "post" action = " {% url 'shopping_detail' shop.id %}">
+                                            {% csrf_token %}
+                                            <button class = "btn btn-primary" type = "submit" >View</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </li>
+                     {% endfor %}
+                 </ul>
+             </div>
+             <div class = "col-2"></div>
+        </div>
+    </div>
+
 
 </body>
 </html>

@@ -24,7 +24,9 @@ urlpatterns = [
     path('', aviews.home, name = "home"),
     path("login/", aviews.login, name = "login"),
     path('home/', sviews.user_home, name = "user_home"),
-    path("logout/", aviews.logout, name = "logout")
+    path('home/<str:status>', sviews.user_home, name = "user_home"),
+    path("logout/", aviews.logout, name = "logout"),
+    path("shop/<int:shopping_id>", sviews.shopping_home, name = "shopping_detail")
 
 
 ]
