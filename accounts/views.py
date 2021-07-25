@@ -11,7 +11,7 @@ def login(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        username = "user1"
+        username = str(email).split("@")[0]
         user = auth.authenticate(username = username, password = password)
 
         if user is not None:

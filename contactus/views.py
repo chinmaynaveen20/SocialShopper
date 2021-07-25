@@ -2,4 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 def contact(request):
-    return render(request, "contact.html")
+    loggedIn = request.user.is_authenticated
+    context = {"loggedIn" : loggedIn}
+    return render(request, "contact.html", context)
