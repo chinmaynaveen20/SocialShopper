@@ -78,18 +78,56 @@
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
+                              <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body">
-                                    ...
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <form>
+                                      <div class="mb-3">
+                                        <input type="text" class="form-control" name="shopping_id" value="Shopping ID: {{shopping.id}}"
+                                        readonly>
+                                      </div>
+                                      < class="mb-3">
+                                      <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">#</th>
+                                              <th scope="col">Name</th>
+                                              <th scope="col">Brand</th>
+                                              <th scope="col">Quantity</th>
+                                              <th scope="col">Price</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">1</th>
+                                              <td><input type="text" name="name_1"></td>
+                                              <td><input type="text" name="brand_1"></td>
+                                              <td><input type="text" name="quantity_1"></td>
+                                              <td><input type="text" name="price_1"></td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">2</th>
+                                               <td><input type="text" name="name_2"></td>
+                                              <td><input type="text" name="brand_2"></td>
+                                              <td><input type="text" name="quantity_2"></td>
+                                              <td><input type="text" name="price_2"></td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">3</th>
+                                               <td><input type="text" name="name_3"></td>
+                                              <td><input type="text" name="brand_3"></td>
+                                              <td><input type="text" name="quantity_3"></td>
+                                              <td><input type="text" name="price_3"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                        <button type="submit" class="btn btn-primary col-12">Submit</button>
+                                    </form>
                                   </div>
                                 </div>
                               </div>

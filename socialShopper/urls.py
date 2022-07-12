@@ -21,12 +21,16 @@ import shoppings.views as sviews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', cviews.contact, name = "contact"),
+    path('triplist/', aviews.mytrips, name = "tripList"),
+    path('triplist/<str:status>', aviews.mytrips, name = "tripList"),
     path('', aviews.home, name = "home"),
     path("login/", aviews.login, name = "login"),
     path('home/', sviews.user_home, name = "user_home"),
     path('home/<str:status>', sviews.user_home, name = "user_home"),
     path("logout/", aviews.logout, name = "logout"),
-    path("shop/<int:shopping_id>", sviews.shopping_home, name = "shopping_detail")
+    path("shop/<int:shopping_id>", sviews.shopping_home, name = "shopping_detail"),
+    path("sr", sviews.add_sr, name = "add_shopping_request"),
+    path("add_shopping/", sviews.add_shopping, name = "add_shopping")
 
 
 ]
