@@ -29,7 +29,7 @@ urlpatterns = [
     path('home/<str:status>', sviews.user_home, name = "user_home"),
     path("logout/", aviews.logout, name = "logout"),
     path("shop/<int:shopping_id>", sviews.shopping_home, name = "shopping_detail"),
-    path("sr", sviews.add_sr, name = "add_shopping_request"),
+    path("sr/<int:shopping_id>", sviews.add_sr, name = "add_shopping_request"),
     path("add_shopping/", sviews.add_shopping, name = "add_shopping")
 
 
