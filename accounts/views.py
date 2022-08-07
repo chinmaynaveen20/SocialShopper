@@ -39,3 +39,10 @@ def mytrips(request, status="pr"):
         context["status"] = status
         return render(request, "mytrips.html", context)
 
+def signup(request):
+    pass
+
+
+def signupPage(request):
+    return render(request, "signup.html")
+

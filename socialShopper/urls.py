@@ -30,7 +30,11 @@ urlpatterns = [
     path("logout/", aviews.logout, name = "logout"),
     path("shop/<int:shopping_id>", sviews.shopping_home, name = "shopping_detail"),
     path("sr/<int:shopping_id>", sviews.add_sr, name = "add_shopping_request"),
-    path("add_shopping/", sviews.add_shopping, name = "add_shopping")
+    path("add_shopping/", sviews.add_shopping, name = "add_shopping"),
+    path("signup/", aviews.signupPage, name = "signupPage")
+
+
+
 
 
 ]
