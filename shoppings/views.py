@@ -80,7 +80,7 @@ def add_sr(request, shopping_id):
             sr.amount = amount
 
             sr.save()
-        return redirect("tripList")
+        return redirect("user_home")
 
 
 
