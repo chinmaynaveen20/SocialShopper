@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.contrib import auth
 from shoppings.models import Shopping
 from .models import AppUser
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -40,7 +41,26 @@ def mytrips(request, status="pr"):
         return render(request, "mytrips.html", context)
 
 def signup(request):
-    pass
+    if request.method == "POST":
+        username = request.POST["user_username"]
+        password = request.POST["user_password"]
+        name = request.POST["user_name"]
+        email = request.POST["user_email"]
+        society = request.POST["user_society"]
+        phoneNumber = request.POST["user_phone"]
+        user = User.objects.create_user(username = username, password = password)
+        appUser = AppUser(
+            user=user,
+            name =name,
+            email = email,
+            society = society,
+            phone = phoneNumber,
+            shopsDone = 0,
+            shopsRequested = 0,
+            approved = True
+        )
+        appUser.save()
+        return redirect("home")
 
 
 def signupPage(request):

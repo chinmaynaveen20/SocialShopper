@@ -43,7 +43,7 @@
               <div class="card bg-light shadow-lg " style="width: 18rem;" >
                   <img src="https://img.freepik.com/free-photo/girl-holds-fashion-shopping-bag-beauty_1150-13673.jpg?size=626&ext=jpg" class="card-img-top" alt="Homepage Image">
                   <div class="card-body">
-                      <form action = "{% url 'login' %}" method = "post">
+                      <form action = "{% url 'signupUser' %}" method = "post">
                           {% csrf_token %}
                           <div class="mb-3">
                             <input class="form-control" id="user_username" name="user_username" placeholder="Enter your username:" required>
@@ -72,6 +72,10 @@
                          </div>
 
                       </form>
+
+                      <a type = "button" href = "{% url 'home' %}">
+                          Log In if already registered
+                      </a>
                   </div>
               </div>
           </div>
