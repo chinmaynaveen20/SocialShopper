@@ -19,10 +19,13 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          <a class="nav-link" aria-current="page" href="{% url 'user_home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+                          <a class="nav-link " href="{% url 'contact' %}">Contact</a>
+                        </li>
+                          <li class="nav-item">
+                          <a class="nav-link" href="{% url 'tripList' %}">Your Trips</a>
                         </li>
                       </ul>
                      <span>
@@ -64,8 +67,10 @@
                                   <th scope="row">{{sr.id}}</th>
                                   <td>{{sr.amount}}</td>
                                   <td>{{sr.status}}</td>
+                                    {% if not isOwner %}
                                   <td><button class = "btn btn-primary">Edit</button></td>
                                   <td><button class = "btn btn-warning">Delete</button></td>
+                                    {% endif %}
                                 </tr>
                               {% endfor %}
                               </tbody>
@@ -133,6 +138,16 @@
                               </div>
                             </div>
                           {% endif %}
+                    {% if isOwner %}
+                    <form>
+                        <button>
+                            Complete Trip
+                        </button>
+                    </form>
+                    {% endif %}
+
+
+
                       </div>
                       <div class="card-footer text-muted">
                         Total Shoppings Done by Shopper: {{shopping.shopper.shopsDone}}

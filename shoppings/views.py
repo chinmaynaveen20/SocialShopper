@@ -32,7 +32,13 @@ def shopping_home(request, shopping_id):
                     shopping = shopping,
                     requester = requester
                 )
+            else:
+                shoppingRequests = ShoppingRequest.objects.filter(
+                    shopping=shopping
+                )
+
             context = {"shopping": shopping, "isOwner" : isOwner, "shoppingRequests" : shoppingRequests}
+            print(context)
             return render(request, "shopping_detail.html", context)
 
 
