@@ -109,3 +109,13 @@ def add_shopping(request):
         )
         shopping.save()
         return redirect("tripList")
+
+
+def complete_shopping(request, shopping_id):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            shopping = get_object_or_404(Shopping, pk = shopping_id)
+            if shopping:
+                shopping.status = "CO"
+                shopping.save()
+                return redirect("tripList")

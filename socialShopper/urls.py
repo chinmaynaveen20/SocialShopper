@@ -32,7 +32,8 @@ urlpatterns = [
     path("sr/<int:shopping_id>", sviews.add_sr, name = "add_shopping_request"),
     path("add_shopping/", sviews.add_shopping, name = "add_shopping"),
     path("signup/", aviews.signupPage, name = "signupPage"),
-    path("signup_user/", aviews.signup, name = "signupUser")
+    path("signup_user/", aviews.signup, name = "signupUser"),
+    path("complete/<int:shopping_id>", sviews.complete_shopping, name = "completeTrip")
 
 
 

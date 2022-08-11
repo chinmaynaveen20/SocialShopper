@@ -132,6 +132,7 @@
                                         </table>
                                       </div>
                                         <button type="submit" class="btn btn-primary col-12">Submit</button>
+
                                     </form>
                                   </div>
                                 </div>
@@ -139,8 +140,9 @@
                             </div>
                           {% endif %}
                     {% if isOwner %}
-                    <form>
-                        <button>
+                    <form method = post action = "{% url 'completeTrip' shopping.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">
                             Complete Trip
                         </button>
                     </form>
