@@ -7,6 +7,7 @@ from datetime import datetime
 
 def user_home(request, status = "pr"):
     if request.user.is_authenticated:
+        activate_trips()
         user = AppUser.objects.filter(user = request.user)
         user = list(user)[0]
         shoppings = Shopping.objects.filter(
@@ -19,8 +20,21 @@ def user_home(request, status = "pr"):
         return redirect("home")
 
 
+def activate_trips():
+    current_time = datetime.now()
+    shoppings =  Shopping.objects.filter(
+        status = "PR",
+        datetime__gt = current_time
+    )
+
+    for shopping in shoppings:
+        shopping.status = "AC"
+        shopping.save()
+
+
 def shopping_home(request, shopping_id):
     if request.user.is_authenticated:
+        activate_trips()
         if request.method == "POST" :
             shopping = get_object_or_404(Shopping, pk = shopping_id)
             isOwner  = request.user.username == shopping.shopper.user.username
