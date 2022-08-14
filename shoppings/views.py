@@ -36,9 +36,11 @@ def shopping_home(request, shopping_id):
                 shoppingRequests = ShoppingRequest.objects.filter(
                     shopping=shopping
                 )
+            active_shopping = True if shopping.status == "AC" else False
 
-            context = {"shopping": shopping, "isOwner" : isOwner, "shoppingRequests" : shoppingRequests}
-            print(context)
+
+
+            context = {"shopping": shopping, "isOwner" : isOwner, "shoppingRequests" : shoppingRequests, "active_shopping" : active_shopping}
             return render(request, "shopping_detail.html", context)
 
 

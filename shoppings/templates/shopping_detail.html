@@ -139,7 +139,8 @@
                               </div>
                             </div>
                           {% endif %}
-                    {% if isOwner %}
+                    {% if isOwner and active_shopping %}
+
                     <form method = post action = "{% url 'completeTrip' shopping.id %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary">
