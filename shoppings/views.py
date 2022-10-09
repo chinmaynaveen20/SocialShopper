@@ -24,7 +24,7 @@ def activate_trips():
     current_time = datetime.now()
     shoppings =  Shopping.objects.filter(
         status = "PR",
-        datetime__gt = current_time
+        datetime__lt = current_time
     )
 
     for shopping in shoppings:
@@ -114,7 +114,6 @@ def add_shopping(request):
         time = request.POST["time"]
         datetime_str = date + " " + time
         dt = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M')
-        print(dt)
         shopper = AppUser.objects.filter(user=request.user)
         shopper = list(shopper)[0]
         shopping = Shopping(

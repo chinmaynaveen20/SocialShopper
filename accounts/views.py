@@ -4,6 +4,7 @@ from django.contrib import auth
 from shoppings.models import Shopping
 from .models import AppUser
 from django.contrib.auth.models import User
+from shoppings.views import activate_trips
 
 # Create your views here.
 def home(request):
@@ -29,6 +30,7 @@ def logout(request):
 
 def mytrips(request, status="pr"):
     if request.user.is_authenticated:
+        activate_trips()
         context = {}
         user= AppUser.objects.filter(user = request.user)
         user = list(user)[0]
